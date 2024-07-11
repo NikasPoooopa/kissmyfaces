@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kissmyface</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            perspective: 1000px; /* Добавлено для 3D эффекта */
+        }
+
+        .header, .links {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.1s;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .link:hover {
+            color: #999;
+        }
+
+        .logo {
+            font-size: 0.8em;
+            line-height: 1em;
+            white-space: pre;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="header">
+        <div class="logo">
+            __ __ ______________ __  _____  ___________   ____________
+           / //_//  _/ ___/ ___//  |/  /\ \/ / ____/   | / ____/ ____/
+          / ,<   / / \__ \\__ \/ /|_/ /  \  / /_  / /| |/ /   / __/   
+         / /| |_/ / ___/ /__/ / /  / /   / / __/ / ___ / /___/ /___   
+        /_/ |_/___//____/____/_/  /_/   /_/_/   /_/  |_\____/_____/   
+        </div>
+        <p>13 y.o — moscow — russia — codding — design</p>
+    </div>
+    <div class="links" id="links">
+        <a class="link" href="https://t.me/idoxer228" target="_blank">❬ Telegram ⟩</a>
+        <a class="link" href="https://discord.gg/darksquad1337" target="_blank">❬ Discord ⟩</a>
+        <a class="link" href="Kill" target="_blank">❬ Kill ⟩</a>
+    </div>
+    <audio id="background-music" src="./test.mp3" autoplay loop></audio>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const { clientX, clientY } = event;
+            const { innerWidth, innerHeight } = window;
+
+            const rotateY = (clientX / innerWidth * 2 - 1) * 15; // диапазон -15 до 15
+            const rotateX = (clientY / innerHeight * 2 - 1) * -15; // диапазон -15 до 15
+
+            const header = document.getElementById('header');
+            const links = document.getElementById('links');
+
+            header.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            links.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    </script>
+</body>
+</html>
